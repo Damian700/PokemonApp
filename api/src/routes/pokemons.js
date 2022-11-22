@@ -1,8 +1,7 @@
-const {express, Router } = require('express'); // A CHEQUEAR EXPRESS
+const { Router } = require('express'); // A CHEQUEAR EXPRESS
 const router = Router();
 const axios = require ('axios'); // instalo e importo axios
-const {Pokemon, Tipo, Pokemon_Tipo} = require ('../db.js');
-const {Op} = require ('sequelize');
+const {Pokemon, Tipo } = require ('../db.js');
 
 const extraerDetalle = async (pokeDetail) => {
     const fPokeDetail = {}
@@ -29,7 +28,6 @@ const extraerDetalle = async (pokeDetail) => {
             fPokeDetail.velocidad = pokeDetail.stats[i].base_stat
             break;
           default:
-            console.log('Stats de Pokemon no encontrados')
             break;
         }
       }
