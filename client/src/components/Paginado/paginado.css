@@ -1,0 +1,14 @@
+
+ .pages__main {
+    padding: 1rem;
+    display: inline-block;
+ }
+ 
+
+ .page__number {
+    font-size: large;
+    color: black;
+    padding: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ }
+ 

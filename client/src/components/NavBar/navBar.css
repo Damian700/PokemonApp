@@ -1,0 +1,27 @@
+.navBar__main{
+    background-color: rgb(253, 249, 193);
+    overflow: hidden;
+    border-bottom-style: solid;
+    border-bottom-color: antiquewhite;
+    border-bottom-width: 5px;
+    border-top-style: solid;
+    border-top-color: antiquewhite;
+    border-top-width: 5px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center; 
+    align-items: center; 
+    align-content: center; 
+    gap: 30px 50px;
+}
+
+.navBar__active__button {
+    border-radius: 10%;
+    border-color: aquamarine;
+    border: 5px;
+    white-space: nowrap;
+}
+
+#logo__Henry{
+    align-self: flex-start;
+}
