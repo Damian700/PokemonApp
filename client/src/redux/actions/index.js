@@ -17,6 +17,11 @@ export function getPokemons(){
   )
 }
 
+export function resetPokemons(){
+    return {
+        type: 'RESET_POKEMONS',
+    }
+}
 
 export function getTypes(){
     return (

@@ -38,6 +38,12 @@ const rootReducer = (state = initialState, action) => {
              ...state,
         };
 
+        case "RESET_POKEMONS":
+          return{
+             ...state,
+             pokemons: state.allPokemons
+        };
+
         case "FILTER_BY_TYPE":
           let typeFilter = []
           if (action.payload === "all"){
@@ -73,7 +79,7 @@ const rootReducer = (state = initialState, action) => {
           };
 
           case "ORDER_BY_NAME":
-          let nameResult = state.allPokemons.map(p => {return p})
+          let nameResult = state.pokemons.map(p => {return p})
           if (action.payload === "ase"){
             nameResult.sort((a, b)=>{
               if (a.nombre > b.nombre){
@@ -102,7 +108,7 @@ const rootReducer = (state = initialState, action) => {
           };
 
           case "ORDER_BY_ATACK":
-            let atackResult = state.allPokemons.map(p => {return p})
+            let atackResult = state.pokemons.map(p => {return p})
             if (action.payload === "ase"){
               atackResult.sort((a, b)=>{
                 if(a.ataque > b.ataque){

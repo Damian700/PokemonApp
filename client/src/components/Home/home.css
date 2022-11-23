@@ -64,6 +64,48 @@
     background-color: antiquewhite;
 }
 
+#reset__filters__button{
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  padding: 7px 15px;
+  margin: 4px 6px;
+  cursor: pointer;
+  text-align: center;
+  font-family: Lucida Console, Courier New, Monaco;
+}
+
+#reset__filters__button:hover {
+  background-color: #3ba0cb;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: rgb(245, 245, 245);
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 6px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.select__box{
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  padding: 5px 5px;
+  margin: 4px 6px;
+  cursor: pointer;
+  text-align: center;
+  font-family: Lucida Console, Courier New, Monaco;
+}
 /*  ------------ RESPONSIVE ------------ */
 /* Pantalla grande */
 .navBar__item {

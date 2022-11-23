@@ -7,12 +7,13 @@ const LandingPage = () => {
     //componente de función creado
     //no voy a necesitar estado por acá
     return(
-        <>
-        <h1>WELCOME TO MY POKEAPP</h1>
+        <div id="container_landing">
+        <h1 id="main_landing">POKEMON WORLD</h1>
         <Link to='/home'>
-            <button>INGRESAR</button>
+            <button id="landing_button">ENTRA</button>
         </Link>
-        </>
+        <h2 id="sub_main_landing">Y COMIENZA TU AVENTURA...</h2>
+        </ div>
     )
 }
 

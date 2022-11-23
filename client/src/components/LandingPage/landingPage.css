@@ -1,0 +1,41 @@
+#container_landing{
+    padding: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    align-content: center;
+    gap: 15px 25px;
+}
+
+#main_landing{
+        text-align: center;
+        font-family: Lucida Console, Courier New, Monaco;
+        font-size: 50px;
+        font-weight: 700; color:#202020;
+        text-transform: uppercase;
+        word-spacing: 1px;
+        letter-spacing:2px;
+}
+
+#landing_button{
+    color: rgb(4, 3, 2);
+    border-radius: 4px;
+    font-size: x-large;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+}
+
+#sub_main_landing{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    align-content: center;
+    text-align: center;
+    font-family: Courier New, Monaco;
+    font-size: 22px;
+    font-weight: 700; color:#202020;
+    text-transform: uppercase;
+    word-spacing: 1px;
+    letter-spacing:2px;
+}

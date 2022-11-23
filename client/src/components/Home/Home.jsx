@@ -1,7 +1,7 @@
 import "./home.css";
 import React, {useState, useEffect, } from "react"; //Component para crearlo por clase
 import { useDispatch, useSelector,  } from "react-redux";
-import { getPokemons, getTypes, filterByType, filterByCreated, orderByName, orderByAtack, getPokemonsDetail} from "../../redux/actions";
+import { getPokemons, getTypes, resetPokemons, filterByType, filterByCreated, orderByName, orderByAtack, getPokemonsDetail} from "../../redux/actions";
 import defaultImg from "../../Imgs/unknownPokemon.png"
 import PokeCard from "../../components/PokeCard/PokeCard"
 import Paginado from "../../components/Paginado/Paginado"
@@ -35,9 +35,17 @@ const Home = () => {
 
     console.log("POST USE-EFFECT", currentPokemons, "++++++++", allTypes, "+pokemonDetail: ", pokemon)
 
-    const handleOnClick = (e) => {
+    const handleResetFilters = (e) => {
         e.preventDefault ();
-        dispatch(getPokemons());
+        let select_abc = document.getElementById("select_abc")
+        let select_attack = document.getElementById("select_attack")
+        let select_type = document.getElementById("select_type")
+        let select_exi_cre = document.getElementById("select_exi_cre")
+        select_abc.selectedIndex = 0;
+        select_attack.selectedIndex = 0;
+        select_type.selectedIndex = 0;
+        select_exi_cre.selectedIndex = 0;
+        dispatch(resetPokemons());
     }
 
     const handleTypeFilter = (e) =>{
@@ -65,18 +73,19 @@ const Home = () => {
         <NavBar className="navBar__item"/>
         <div className="body_container">
             <div className="selectors__group">
+            <div><button id="reset__filters__button"onClick={handleResetFilters}>¡TODOS!</button></div>
             <p className="label__filtrado">FILTRADO: </p>
-            <select onChange={e => {handleOrderByName(e)}}>   
+            <select id="select_abc" className="select__box" onChange={e => {handleOrderByName(e)}}>   
                 <option value="id" key="id">Alfabeticamente</option>
                 <option value="ase" key="ase">Ascendente</option>
                 <option value="des" key="des">Descendente</option>
             </select>
-            <select onChange={e => {handleOrderByAtack(e)}}>   
+            <select id="select_attack" className="select__box" onChange={e => {handleOrderByAtack(e)}}>   
                 <option value="id" key="id">Ataque</option>
                 <option value="ase" key="ase">Ascendente</option>
                 <option value="des" key="des">Descendente</option>
             </select>
-            <select onChange={e => {handleTypeFilter(e)}}>
+            <select id="select_type" className="select__box" onChange={e => {handleTypeFilter(e)}}>
                 <option value="all" key="all">Todos</option>
                 {
                 allTypes && allTypes.map(t =>{
@@ -87,7 +96,7 @@ const Home = () => {
                     })
                 }
             </select>
-            <select onChange={e => {handleCreatedFilter(e)}}>
+            <select id="select_exi_cre" className="select__box" onChange={e => {handleCreatedFilter(e)}}>
                 <option value="all" key="all">Todos</option>       
                 <option value="exi" key="exi">Existentes</option>  
                 <option value="cre" key="cre">Creados</option>
@@ -96,7 +105,8 @@ const Home = () => {
             <Paginado 
             pokemonsPerPage={pokemonsPerPage} 
             allPokemons={allPokemons.length} 
-            paginado={paginado}/>
+            paginado={paginado}
+            currentPage={currentPage}/>
             <div className="cards__group">
                 {
                     currentPokemons && currentPokemons.map (p=>{

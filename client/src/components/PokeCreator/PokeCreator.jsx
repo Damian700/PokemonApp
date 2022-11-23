@@ -187,15 +187,6 @@ export const PokeCreator = () => {
                 </p>
                 <button id="button__create" type="submit">CREAR PERSONAJE</button>
             </div>
-            <div>
-            { /* //hacer un map o algo de eso con errors
-            errors.nombre && ( <p className='formulario__input-error'>{errors.nombre}</p>)
-            errors.peso && ( <p className='formulario__input-error'>{errors.nombre}</p>)
-            errors.nombre && ( <p className='formulario__input-error'>{errors.nombre}</p>)
-            errors.nombre && ( <p className='formulario__input-error'>{errors.nombre}</p>) */
-            }
-            </div>
-
         </form>
         </div>
     )

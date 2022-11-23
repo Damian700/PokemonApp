@@ -28,6 +28,7 @@ const extraerDetalle = async (pokeDetail) => {
             fPokeDetail.velocidad = pokeDetail.stats[i].base_stat
             break;
           default:
+            console.log("Stat de Pokemon no requerido")
             break;
         }
       }
@@ -200,6 +201,20 @@ const extraerDetalle = async (pokeDetail) => {
       })
       pokemonCreate.addTipo(tipoDb);
       res.send('Personaje creado con exito');
+    } catch(e){res.send(`ERROR EN POSTEO DE POKEMONS!!! ........ ${e}`)}
+  });
+
+  // ---------------------------------- START PUT y DELETE POKEMONS ------------------------------------
+
+  router.put ("/", async (req,res)=>{
+    let {id, nombre, } = req.body
+    if(id && title && contents){
+
+    }else{
+
+    }
+    try{
+
     } catch(e){res.send(`ERROR EN POSTEO DE POKEMONS!!! ........ ${e}`)}
   });
 

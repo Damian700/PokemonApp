@@ -1,3 +1,4 @@
+import "./searchBar.css"
 import React from 'react';
 import { connect } from "react-redux";
 import { getPokemonsQuery, getPokemons } from '../../redux/actions';
@@ -35,8 +36,8 @@ class SearchBar extends React.Component {
 
         return(
             <div>
-                <input type="text" value={this.state.name} placeholder="Buscar Pokemon..." onChange={e=>handleBusqueda(e)}/>
-                <button type="submit" onClick={e=>handleSubmit(e)}>Buscar!</button>
+                <input className="search__input" type="text" value={this.state.name} placeholder="Buscar Pokemon..." onChange={e=>handleBusqueda(e)}/>
+                <button className="search__button" type="submit" onClick={e=>handleSubmit(e)}>Buscar!</button>
             </div>
         )
     }
