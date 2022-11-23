@@ -54,7 +54,7 @@
 
 .item__card {
     display:flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     justify-content: center;
     width: 250px;
     height: 450px;
@@ -106,27 +106,3 @@
   text-align: center;
   font-family: Lucida Console, Courier New, Monaco;
 }
-/*  ------------ RESPONSIVE ------------ */
-/* Pantalla grande */
-.navBar__item {
-    display: flex;
-    flex-flow: row wrap;
-    /* This aligns items to the end line on main-axis */
-    justify-content: flex-end;
-  }
-  
-/* Pantalla mediana */
-  @media all and (max-width: 800px) {
-    .navBar__item {
-      /* When on medium sized screens, we center it by evenly distributing empty space around items */
-      justify-content: space-around;
-    }
-  }
-  
-/* Pantalla chica */
-  @media all and (max-width: 500px) {
-    .navBar__item {
-      /* On small screens, we are no longer using row direction but column */
-      flex-direction: column;
-    }
-  }

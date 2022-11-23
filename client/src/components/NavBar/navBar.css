@@ -14,7 +14,14 @@
     align-content: center; 
     gap: 30px 50px;
 }
-
+.nav__buttons{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center; 
+  align-items: center; 
+  align-content: center; 
+  gap: 30px 50px;
+}
 .navBar__button{
     border: 1px solid black;
     border-radius: 10px;
@@ -46,4 +53,16 @@
   
 #logo__Henry{
     align-self: flex-start;
+}
+
+@media all and (max-width: 1000px) {
+  .navBar__main {
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width: 700px) {
+  .nav__buttons {
+    flex-direction: column;
+  }
 }

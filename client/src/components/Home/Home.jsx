@@ -20,6 +20,15 @@ const Home = () => {
     const currentPokemons = allPokemons.slice(indexOfFirstPokemon, indexOfLastPokemon)
 
     const paginado = (pageNumber) => {setCurrentPage(pageNumber)}
+    const sortedTypes = allTypes.sort((a, b)=>{
+        if (a > b){
+          return 1;
+        }
+        if (a < b){
+          return -1;
+        }
+        return 0
+          })
 
     useEffect(()=>{ 
         dispatch(getPokemons());
@@ -28,10 +37,10 @@ const Home = () => {
    useEffect(()=>{
         dispatch(getTypes());
     },[dispatch])
-
+/* 
     useEffect(()=>{ 
         dispatch(getPokemonsDetail(1));
-    },[dispatch])
+    },[dispatch]) */
 
     console.log("POST USE-EFFECT", currentPokemons, "++++++++", allTypes, "+pokemonDetail: ", pokemon)
 
@@ -88,7 +97,7 @@ const Home = () => {
             <select id="select_type" className="select__box" onChange={e => {handleTypeFilter(e)}}>
                 <option value="all" key="all">Todos</option>
                 {
-                allTypes && allTypes.map(t =>{
+                sortedTypes && sortedTypes.map(t =>{
                     let tCap = t.charAt(0).toUpperCase() + t.slice(1)
                             return(
                     <option value={t} key={t}>{tCap}</option>

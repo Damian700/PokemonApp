@@ -65,13 +65,13 @@ const rootReducer = (state = initialState, action) => {
         case "FILTER_BY_CREATED":
           let createdFilter = []
           if (action.payload === "all"){
-            createdFilter = state.allPokemons
+            createdFilter = state.pokemons
           } 
           else if (action.payload === "cre"){
-              createdFilter = state.allPokemons.filter(p =>p.createdInDb)
+              createdFilter = state.pokemons.filter(p =>p.createdInDb)
             }
           else if (action.payload === "exi"){
-              createdFilter = state.allPokemons.filter(p =>!p.createdInDb)
+              createdFilter = state.pokemons.filter(p =>!p.createdInDb)
             }
           return{
             ...state,
