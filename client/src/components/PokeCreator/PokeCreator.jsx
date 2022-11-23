@@ -2,7 +2,7 @@ import "./pokeCreator.css";
 import React, {useState, useEffect} from "react"; //Component para crearlo por clase
 import { useDispatch, useSelector} from "react-redux";
 import {Link, useHistory} from 'react-router-dom';
-import {getPokemons, getTypes, createPokemon} from "../../redux/actions/"
+import {getPokemons, getTypes, createPokemon, getPokemonsQuery} from "../../redux/actions/"
 import NavBar from "../NavBar/NavBar"
 import defaultImg from "../../Imgs/unknownPokemon.png"
 
@@ -76,13 +76,12 @@ export const PokeCreator = () => {
                 imagen: defaultImg,
                     })
         }
-        setInput({
-            ...input,
-            nombre: input.nombre.toLowerCase(),
-                })
         console.log(input.imagen)
         if(!errors.nombre&&!errors.peso){
-        dispatch(createPokemon(input))
+        dispatch(createPokemon({
+            ...input,
+            nombre: input.nombre.toLowerCase(),
+                }))
         alert("Personaje creado!")
         setInput({
             nombre: "",

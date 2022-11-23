@@ -12,12 +12,3 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     cursor: pointer;
  }
- 
- .active__page {
-   font-size: large;
-   border-bottom: 1px solid black;
-   color: rgb(135, 25, 25);
-   padding: 15px;
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   cursor: pointer;
-}

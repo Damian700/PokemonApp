@@ -105,8 +105,7 @@ const Home = () => {
             <Paginado 
             pokemonsPerPage={pokemonsPerPage} 
             allPokemons={allPokemons.length} 
-            paginado={paginado}
-            currentPage={currentPage}/>
+            paginado={paginado}/>
             <div className="cards__group">
                 {
                     currentPokemons && currentPokemons.map (p=>{
