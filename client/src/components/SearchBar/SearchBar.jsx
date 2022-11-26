@@ -23,14 +23,14 @@ class SearchBar extends React.Component {
     const handleSubmit = (e) =>{
         e.preventDefault()
         console.log("esto es: " + this.state.name)
-        if(!this.state.name.length){
-            this.props.getPokemons()
-        } else {
+        if(this.state.name.length>=1){
             let nombre = this.state.name;
             this.setState({
                 name: ""
             })
             this.props.getPokemonsQuery(nombre)
+        } else {
+            this.props.getPokemons()
         }
     }
 
@@ -46,8 +46,13 @@ class SearchBar extends React.Component {
 export function mapDispatchToProps (dispatch){
     return {
         getPokemonsQuery: function(name){dispatch(getPokemonsQuery(name))},
-        getPokemons: function(){dispatch(getPokemonsQuery())},
+        getPokemons: function(){dispatch(getPokemons())},
     }
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+export function mapStateToProps (state){
+    return {
+        pokemons: state.allPokemons
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

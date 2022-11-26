@@ -14,6 +14,21 @@ export const validate = (input) =>{
     if (input.peso<1||input.peso>1500){
         error.peso = "El peso debe estar entre un rango de 1 a 1500"
     }
+    if (input.vida<1){
+        error.vida = "Vida debe ser mayor a 0"
+    }
+    if (input.ataque<1){
+        error.ataque = "atk debe ser mayor a 0"
+    }
+    if (input.defensa<1){
+        error.defensa = "def debe ser mayor a 0"
+    }
+    if (input.velocidad<1){
+        error.velocidad = "vel debe ser mayor a 0"
+    }
+    if (input.altura<1){
+        error.altura = "Altura debe ser mayor a 0"
+    }
     console.log("muestro errors",error)
     return error;
     }
@@ -68,16 +83,14 @@ export const PokeCreator = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(input)
         if(input.imagen===""){
-            console.log(input.imagen)
             setInput({
                 ...input,
                 imagen: defaultImg,
                     })
         }
         console.log(input.imagen)
-        if(!errors.nombre&&!errors.peso){
+        if(!errors.nombre&&!errors.peso&&!errors.vida&&!errors.altura&&!errors.defensa&&!errors.ataque&&!errors.velocidad){
         dispatch(createPokemon({
             ...input,
             nombre: input.nombre.toLowerCase(),
@@ -160,20 +173,24 @@ export const PokeCreator = () => {
             <div className="formulario__grupo" id="grupo__stats">
                 <p id="title">STATS</p>
                 <p>
-                <label className="formulario__label" for="vida">Vida: </label>
+                <label className={errors.vida?"form__error":"formulario__label"} for="vida">Vida: </label>
                 <input className="formulario__input" autoComplete="off" type="number" name="vida" id="vida" value={input.vida} onChange={e=> handleChange(e)} />
+                {errors.vida && <p>{errors.vida}</p>}
                 </p>
                 <p>
-                <label className="formulario__label" for="ataque">Ataque: </label>
+                <label className={errors.ataque?"form__error":"formulario__label"} for="ataque">Ataque: </label>
                 <input className="formulario__input" autoComplete="off" type="number" name="ataque" id="ataque" value={input.ataque} onChange={e=> handleChange(e)} />
+                {errors.ataque && <p>{errors.ataque}</p>}
                 </p>
                 <p>
-                <label className="formulario__label" for="defensa">Defensa: </label>
+                <label className={errors.defensa?"form__error":"formulario__label"} for="defensa">Defensa: </label>
                 <input className="formulario__input" autoComplete="off" type="number" name="defensa" id="defensa" value={input.defensa} onChange={e=> handleChange(e)} />
+                {errors.defensa && <p>{errors.defensa}</p>}
                 </p>
                 <p>
-                <label className="formulario__label" for="velocidad">Velocidad: </label>
+                <label className={errors.velocidad?"form__error":"formulario__label"} for="velocidad">Velocidad: </label>
                 <input className="formulario__input" autoComplete="off" type="number" name="velocidad" id="velocidad" value={input.velocidad} onChange={e=> handleChange(e)} />
+                {errors.velocidad && <p>{errors.velocidad}</p>}
                 </p>
                 <p>
                 <label className={errors.peso?"form__error":"formulario__label"} for="peso">Peso: </label>
@@ -181,8 +198,9 @@ export const PokeCreator = () => {
                 {errors.peso && <p>{errors.peso}</p>}
                 </p>
                 <p>
-                <label className="formulario__label" for="altura">Altura: </label>
+                <label className={errors.altura?"form__error":"formulario__label"} for="altura">Altura: </label>
                 <input className="formulario__input" autoComplete="off" type="number" name="altura" id="altura" value={input.altura} onChange={e=> handleChange(e)} />
+                {errors.altura && <p>{errors.Altura}</p>}
                 </p>
                 <button id="button__create" type="submit">CREAR PERSONAJE</button>
             </div>

@@ -27,6 +27,12 @@ const rootReducer = (state = initialState, action) => {
              pokeDetail: [action.payload]
         };
         
+        case "RESET_POKEMONS_DETAIL":
+          return{
+             ...state,
+             pokeDetail: []
+        };
+        
         case "GET_TYPES":
           return{
              ...state,

@@ -83,6 +83,7 @@ const extraerDetalle = async (pokeDetail) => {
         }
             }]
     })
+    console.log(dbData)
     const mainPageInfo = dbData.map(p=>{
       return{
       nombre: p.nombre,
@@ -118,6 +119,7 @@ const extraerDetalle = async (pokeDetail) => {
     return dataTotal;
   }
   
+  // ------------------------------------ RUTAS  -------------------------------------------------
   router.get("/", async (req,res) => {
     try{
     const allPokemons = await getPokemons ();

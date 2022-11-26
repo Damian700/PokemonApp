@@ -37,6 +37,12 @@ export function getTypes(){
   )
 }
 
+export function resetPokeDetail(){
+    return {
+        type: 'RESET_POKEMONS_DETAIL',
+    }
+}
+
 export function getPokemonsQuery(name){
     return (
         async (dispatch) => {
